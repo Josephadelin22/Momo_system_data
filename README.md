@@ -47,4 +47,4 @@
     └── test_categorize.py
 
 
-Prjoject board: [scrum Board] (https://github.com/Josephadelin22/Momo_system_date/projects/1)
+Prjoject board: [scrum Board] (https://github.com/Josephadelin22/Momo_system_data)
