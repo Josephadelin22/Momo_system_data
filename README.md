@@ -1,50 +1,84 @@
-# Momo_system_data
+# MoMo SMS Data Processing  
 
-.
-├── README.md                d’exécution, aperçu du projet
-├── .env.example            # Exemple de variables d’environnement (DB_URL, API_KEY, etc.)
-├── requirements.txt        # Dépendances Python (lxml, dateutil, sqlite-utils, FastAPI en option)
-├── index.html              # Point d’entrée statique du tableau de bord
-│
-├── web/                    # Frontend (statique)
-│   ├── styles.css          # Styles globaux
-│   ├── chart_handler.js    # JS pour graphiques, fetch JSON, rendering DOM
-│   └── assets/             # Images/icônes (optionnel)
-│
-├── data/                   # Données brutes, transformées et base de données
-│   ├── raw/                # Entrées XML (à ignorer dans git)
-│   │   └── momo.xml
-│   ├── processed/          # Données prêtes pour le dashboard
-│   │   └── dashboard.json
-│   ├── db.sqlite3          # Base SQLite locale
-│   └── logs/               # Logs et erreurs
-│       ├── etl.log
-│       └── dead_letter/    # XML rejetés ou malformés
-│
-├── etl/                    # Pipeline ETL
-│   ├── __init__.py
-│   ├── config.py           # Paramètres (seuils, mappings, chemins)
-│   ├── parse_xml.py        # Parsing XML avec ElementTree/lxml
-│   ├── clean_normalize.py  # Normalisation montants, dates, numéros
-│   ├── categorize.py       
-│   ├── load_db.py           
-│   └── run.py              
-│
-├── api/                    
-│   ├── __init__.py
-│   ├── app.py              
-│   ├── db.py                
-│   └── 
-│
-├── scripts/                # Scripts shell pratiques
-│   ├── run_etl.sh          # Lance ETL complet sur un XML donné
-│   ├── export_json.sh      # Regénère dashboard.json
-│   └── serve_frontend.sh   # Démarre un petit serveur HTTP (ou Flask statique)
-│
-└── tests/                 
-    ├── test_parse_xml.py
-    ├── test_clean_normalize.py
-    └── test_categorize.py
+##  Team Information  
+**Team Name:** Team 8  
+**Members:**  
+- Adeleye Ayomide  (Adeleye11)  
+- Joseph BBOUSSAMBA (Josephadelin22)  
+- Denyse Ishimirwe (denyseishimirwe)
+- Member 4 () 
+
+---
+
+##  Project Description  
+This project is about building an **enterprise-level fullstack application** to process MoMo SMS transaction data.  
+
+- **Extract**: Get SMS transaction data in XML format  
+- **Transform**: Clean, normalize, and categorize transactions  
+- **Load**: Store processed data into a relational database (SQLite)  
+- **Visualize**: Build a frontend dashboard for analysis  
+
+The backend ETL pipeline is powered by **Python**, while the frontend uses **HTML, CSS, and JavaScript**. An optional **FastAPI API** may provide analytics endpoints.  
+
+---
+
+##  High-Level System Architecture  
+The system works as follows:  
+
+**MoMo SMS (XML Data)** → **Python ETL Pipeline** → **SQLite Database** → **Processed JSON** → **Frontend Dashboard**  
+*(Optional: SQLite Database → FastAPI API → Frontend Dashboard)*  
+
+ View the full diagram here: https://drive.google.com/file/d/1xx-heJHO9eU-H6tWehh43LTSADeKwxJS/view?usp=drive_link  
 
 
-Prjoject board: [scrum Board] (https://github.com/Josephadelin22/Momo_system_data)
+
+---
+
+##  Scrum Board  
+We are following **Agile practices** using a Scrum board with three columns:  
+
+- **To Do**  
+- **In Progress**  
+- **Done**  
+
+ View our Scrum board here: https://trello.com/invite/b/68c0647b4b690ae71b0f7762/ATTIa64c805b0b4ae3e26abb6731bbe71930189BB9AC/group-8-scrum-board  
+ 
+
+---
+
+##  Project Organization  
+Our repo follows this structure:  
+
+```
+├── README.md # Setup, run, overview
+├── .env.example # DATABASE_URL or path to SQLite
+├── requirements.txt # Dependencies
+├── index.html # Dashboard entry (static)
+├── web/
+│ ├── styles.css # Dashboard styling
+│ ├── chart_handler.js # Fetch + render charts/tables
+│ └── assets/ # Images/icons (optional)
+├── data/
+│ ├── raw/ # Provided XML input (git-ignored)
+│ ├── processed/ # Cleaned/derived outputs for frontend
+│ ├── logs/
+│ │ └── dead_letter/ # Unparsed/ignored XML snippets
+├── etl/ # Python ETL pipeline
+├── api/ # Optional FastAPI service
+├── scripts/ # Automation scripts
+└── tests/ # Unit tests
+```
+
+
+---
+
+##  Deliverables (Week 1)  
+-  GitHub repository created with teammates added  
+-  Project structure organized  
+-  High-level system architecture diagram added  
+-  Scrum board link shared in README  
+
+---
+
+ **Next Steps:** Implement the ETL pipeline, connect the database, and develop the frontend dashboard.  
+
