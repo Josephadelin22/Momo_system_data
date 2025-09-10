@@ -4,7 +4,7 @@
 **Team Name:** Team 8  
 **Members:**  
 - Adeleye Ayomide  (Adeleye11)  
-- Joseph BBOUSSAMBA (Josephadelin22)  
+- Joseph BOUSSAMBA (Josephadelin22)  
 - Denyse Ishimirwe (denyseishimirwe)
 - Member 4 () 
 
