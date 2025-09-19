@@ -126,7 +126,7 @@ We built JSON schemas for each entity:
 - **System Log**  
 - **Transaction Full** (nested object with user, category, and logs)  
 
-[JSON Schemas](examples/json_schemas.json)   
+[JSON Schemas](examples/json_schemas_with_examples.json)   
 
 ---
 
@@ -138,7 +138,7 @@ All detailed documentation is compiled in a single PDF file containing:
 - Sample queries with results  
 - Security & accuracy rules (constraints)  
 
-📄 Documentation: `docs/database_design_documentation.pdf`  
+[Documentation](MoMo_SMS_Database_Design_Documentation.pdf)  
 
 ---
 
