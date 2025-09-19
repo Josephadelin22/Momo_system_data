@@ -6,7 +6,7 @@
 - Adeleye Ayomide  (Adeleye11)  
 - Joseph BOUSSAMBA (Josephadelin22)  
 - Denyse Ishimirwe (denyseishimirwe)
-- Yves Niyenga  
+- Yves Niyenga     (Niyigena-Yves)
 
 ---
 
