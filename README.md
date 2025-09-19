@@ -103,7 +103,7 @@ We created an ERD with the following entities and relationships:
 - **Categories** → holds transaction types (Debit, Credit, Airtime, etc.).  
 - **System Logs** → records transaction log events for traceability.  
 
-[ERD Diagram](docs/erd_diagram.png)  
+[ERD Diagram](docs/ERD_Diagram.jpg)  
 
 ---
 
