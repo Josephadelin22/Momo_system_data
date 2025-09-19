@@ -103,7 +103,7 @@ We created an ERD with the following entities and relationships:
 - **Categories** → holds transaction types (Debit, Credit, Airtime, etc.).  
 - **System Logs** → records transaction log events for traceability.  
 
-📄 View the ERD here: `docs/erd_diagram.png`  
+[ERD Diagram](docs/erd_diagram.png)  
 
 ---
 
@@ -114,7 +114,7 @@ We implemented the database schema in MySQL with:
 - **Indexes** for faster queries.  
 - **Sample test data** (5 records per main table).  
 
-📄 SQL Script: `database/database_setup.sql`  
+[SQL Script](database/database_setup.sql)  
 
 ---
 
@@ -126,7 +126,7 @@ We built JSON schemas for each entity:
 - **System Log**  
 - **Transaction Full** (nested object with user, category, and logs)  
 
-📄 JSON Schema File: `examples/json_schemas.json`  
+[JSON Schemas](examples/json_schemas.json)   
 
 ---
 
