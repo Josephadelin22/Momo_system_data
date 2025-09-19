@@ -1,0 +1,195 @@
+{
+  "user.schema.json": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "User",
+    "type": "object",
+    "properties": {
+      "user_id": {
+        "type": "integer"
+      },
+      "name": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "user_id",
+      "name"
+    ],
+    "example": {
+      "user_id": 1,
+      "name": "Ayomide"
+    }
+  },
+  "category.schema.json": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Category",
+    "type": "object",
+    "properties": {
+      "category_id": {
+        "type": "integer"
+      },
+      "category_name": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "category_id",
+      "category_name"
+    ],
+    "example": {
+      "category_id": 1,
+      "category_name": "Debit"
+    }
+  },
+  "transaction.schema.json": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Transaction",
+    "type": "object",
+    "properties": {
+      "transaction_id": {
+        "type": "integer"
+      },
+      "amount": {
+        "type": "number"
+      },
+      "fee": {
+        "type": "integer"
+      },
+      "new_balance": {
+        "type": "number"
+      },
+      "transaction_date": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "category": {
+        "type": "string"
+      },
+      "category_id": {
+        "type": "integer"
+      },
+      "user_id": {
+        "type": "integer"
+      }
+    },
+    "required": [
+      "transaction_id",
+      "amount",
+      "transaction_date",
+      "category_id",
+      "user_id"
+    ],
+    "example": {
+      "transaction_id": 1,
+      "amount": 1000.0,
+      "fee": 100,
+      "new_balance": 5000.0,
+      "transaction_date": "2025-09-18T09:00:00Z",
+      "category": "Debit",
+      "category_id": 1,
+      "user_id": 1
+    }
+  },
+  "system_log.schema.json": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "SystemLog",
+    "type": "object",
+    "properties": {
+      "log_id": {
+        "type": "integer"
+      },
+      "log_timestamp": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "transaction_id": {
+        "type": "integer"
+      }
+    },
+    "required": [
+      "log_id",
+      "log_timestamp",
+      "transaction_id"
+    ],
+    "example": {
+      "log_id": 1,
+      "log_timestamp": "2025-09-18T09:01:00Z",
+      "transaction_id": 1
+    }
+  },
+  "transaction_full.schema.json": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "TransactionFull",
+    "type": "object",
+    "properties": {
+      "transaction_id": {
+        "type": "integer"
+      },
+      "amount": {
+        "type": "number"
+      },
+      "fee": {
+        "type": "integer"
+      },
+      "new_balance": {
+        "type": "number"
+      },
+      "transaction_date": {
+        "type": "string",
+        "format": "date-time"
+      },
+      "category": {
+        "type": "string"
+      },
+      "user": {
+        "$ref": "user.schema.json"
+      },
+      "category_details": {
+        "$ref": "category.schema.json"
+      },
+      "logs": {
+        "type": "array",
+        "items": {
+          "$ref": "system_log.schema.json"
+        }
+      }
+    },
+    "required": [
+      "transaction_id",
+      "amount",
+      "transaction_date",
+      "user",
+      "category_details"
+    ],
+    "example": {
+      "transaction_id": 1,
+      "amount": 1000.0,
+      "fee": 100,
+      "new_balance": 5000.0,
+      "transaction_date": "2025-09-18T09:00:00Z",
+      "category": "Debit",
+      "user": {
+        "user_id": 1,
+        "name": "Ayomide"
+      },
+      "category_details": {
+        "category_id": 1,
+        "category_name": "Debit"
+      },
+      "logs": [
+        {
+          "log_id": 1,
+          "log_timestamp": "2025-09-18T09:01:00Z",
+          "transaction_id": 1
+        }
+      ]
+    }
+  },
+  "mapping_documentation": {
+    "users": "users table \u2192 user.schema.json. SQL column user_id \u2192 user_id, name \u2192 name.",
+    "categories": "categories table \u2192 category.schema.json. SQL column category_id \u2192 category_id, category_name \u2192 category_name.",
+    "transactions": "transactions table \u2192 transaction.schema.json. SQL columns map directly (transaction_id, amount, fee, new_balance, transaction_date, category, category_id, user_id).",
+    "system_logs": "System_Logs table \u2192 system_log.schema.json. SQL columns map directly (log_id, log_timestamp, transaction_id).",
+    "transaction_full": "Joins data from transactions, users, categories, and system_logs into a nested JSON object."
+  }
+}
