@@ -81,3 +81,32 @@ INSERT INTO System_Logs (log_timestamp, transaction_id) VALUES
 ('2025-09-18 13:01:00', 5);
 
 -- End of Sample DML statements to insert test data
+
+
+SELECT t.transaction_id, u.name AS user_name, c.category_name, 
+       t.amount, t.fee, t.new_balance, t.transaction_date
+FROM transactions t
+JOIN users u ON t.user_id = u.user_id
+JOIN categories c ON t.category_id = c.category_id;
+
+SELECT c.category_name, COUNT(t.transaction_id) AS total_transactions
+FROM categories c
+JOIN transactions t ON c.category_id = t.category_id
+GROUP BY c.category_name;
+
+ALTER TABLE transactions
+ADD CONSTRAINT chk_amount_positive CHECK (amount > 0);
+
+ALTER TABLE transactions
+ADD CONSTRAINT chk_balance_nonnegative CHECK (new_balance >= 0);
+
+ALTER TABLE categories
+ADD CONSTRAINT uq_category_name UNIQUE (category_name);
+
+SELECT CONSTRAINT_NAME, CONSTRAINT_TYPE, TABLE_NAME
+FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS
+WHERE TABLE_NAME = 'transactions';
+
+SELECT CONSTRAINT_NAME, CONSTRAINT_TYPE, TABLE_NAME
+FROM INFORMATION_SCHEMA.TABLE_CONSTRAINTS
+WHERE TABLE_NAME = 'categories';
