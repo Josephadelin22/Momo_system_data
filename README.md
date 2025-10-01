@@ -1,6 +1,6 @@
 # MoMo SMS Data Processing  
 
-##  Team Information  
+## Team Information  
 **Team Name:** Team 8  
 **Members:**  
 - Adeleye Ayomide  (Adeleye11)  
@@ -8,9 +8,7 @@
 - Denyse Ishimirwe (denyseishimirwe)
 - Yves Niyigena    (Niyigena-Yves)
 
----
-
-##  Project Description  
+## Project Description  
 This project is about building an **enterprise-level fullstack application** to process MoMo SMS transaction data.  
 
 - **Extract**: Get SMS transaction data in XML format  
@@ -20,36 +18,26 @@ This project is about building an **enterprise-level fullstack application** to 
 
 The backend ETL pipeline is powered by **Python**, while the frontend uses **HTML, CSS, and JavaScript**. An optional **FastAPI API** may provide analytics endpoints.  
 
----
-
-##  High-Level System Architecture  
+## High-Level System Architecture  
 The system works as follows:  
 
 **MoMo SMS (XML Data)** → **Python ETL Pipeline** → **SQLite Database** → **Processed JSON** → **Frontend Dashboard**  
-*(Optional: SQLite Database → FastAPI API → Frontend Dashboard)*  
+(Optional: SQLite Database → FastAPI API → Frontend Dashboard)  
 
- View the full diagram here: https://drive.google.com/file/d/1xx-heJHO9eU-H6tWehh43LTSADeKwxJS/view?usp=drive_link  
+View the full diagram here: [https://drive.google.com/file/d/1xx-heJHO9eU-H6tWehh43LTSADeKwxJS/view?usp=drive_link](https://drive.google.com/file/d/1xx-heJHO9eU-H6tWehh43LTSADeKwxJS/view?usp=drive_link)  
 
-
-
----
-
-##  Scrum Board  
+## Scrum Board  
 We are following **Agile practices** using a Scrum board with three columns:  
 
 - **To Do**  
 - **In Progress**  
 - **Done**  
 
- View our Scrum board here: https://trello.com/invite/b/68c0647b4b690ae71b0f7762/ATTIa64c805b0b4ae3e26abb6731bbe71930189BB9AC/group-8-scrum-board  
- 
+View our Scrum board here: [https://trello.com/invite/b/68c0647b4b690ae71b0f7762/ATTIa64c805b0b4ae3e26abb6731bbe71930189BB9AC/group-8-scrum-board](https://trello.com/invite/b/68c0647b4b690ae71b0f7762/ATTIa64c805b0b4ae3e26abb6731bbe71930189BB9AC/group-8-scrum-board)  
 
----
-
-##  Project Organization  
+## Project Organization  
 Our repo follows this structure:  
 
-```
 ├── README.md # Setup, run, overview
 ├── .env.example # DATABASE_URL or path to SQLite
 ├── requirements.txt # Dependencies
@@ -67,18 +55,13 @@ Our repo follows this structure:
 ├── api/ # Optional FastAPI service
 ├── scripts/ # Automation scripts
 └── tests/ # Unit tests
-```
 
 
----
-
-##  Deliverables (Week 1)  
--  GitHub repository created with teammates added  
--  Project structure organized  
--  High-level system architecture diagram added  
--  Scrum board link shared in README  
-
----
+## Deliverables (Week 1)  
+- GitHub repository created with teammates added  
+- Project structure organized  
+- High-level system architecture diagram added  
+- Scrum board link shared in README  
 
 # MoMo SMS Data Processing – Week 2  
 
@@ -93,8 +76,6 @@ In Week 2, our focus was on **Database Design and Implementation**, ensuring the
 - Producing full **database design documentation**, including rationale, data dictionary, sample queries, and constraints.  
 - Updating our **Scrum board** to reflect completed tasks and new sprints.  
 
----
-
 ## Database Design (ERD)  
 We created an ERD with the following entities and relationships:  
 
@@ -105,8 +86,6 @@ We created an ERD with the following entities and relationships:
 
 [ERD Diagram](docs/ERD_Diagram.jpg)  
 
----
-
 ## Database Implementation (MySQL)  
 We implemented the database schema in MySQL with:  
 - **Primary Keys and Foreign Keys** for referential integrity.  
@@ -115,8 +94,6 @@ We implemented the database schema in MySQL with:
 - **Sample test data** (5 records per main table).  
 
 [SQL Script](database/database_setup.sql)  
-
----
 
 ## JSON Data Modeling  
 We built JSON schemas for each entity:  
@@ -128,8 +105,6 @@ We built JSON schemas for each entity:
 
 [JSON Schemas](examples/json_schemas_with_examples.json)   
 
----
-
 ## Documentation  
 All detailed documentation is compiled in a single PDF file containing:  
 - ERD with rationale and design decisions  
@@ -140,13 +115,53 @@ All detailed documentation is compiled in a single PDF file containing:
 
 [Documentation](MoMo_SMS_Database_Design_Documentation.pdf)  
 
----
-
 ## Scrum Board  
-We continued using Agile practices and updated our Scrum board for Week 2.  
+We continued using Agile practices and updated our Scrum board for Week 2.
 
 📌 View our Scrum board: [Team 8 Scrum Board](https://trello.com/invite/b/68c0647b4b690ae71b0f7762/ATTIa64c805b0b4ae3e26abb6731bbe71930189BB9AC/group-8-scrum-board)  
 
----  
+# MoMo SMS Data Processing – Week 3
+
+## API Development & Data Structure Comparison (Week 3 Update)
+
+**This week, we implemented:**
+- A RESTful API in pure Python using `http.server` for CRUD operations on MoMo transactions.
+- Basic Authentication protection for all endpoints.
+- Linear Search and Dictionary Lookup efficiency comparison for transaction queries.
+
+### Setup Instructions:
+
+1. **SMS XML to JSON Parsing**
+    - Run `etl/sms_parse.py` (or your custom script) to convert XML transaction data to JSON.
+    - Output is saved as `data/processed/sms_transactions.json`.
+
+2. **Run the REST API**
+    - Go to the `api/` folder and run:
+      ```
+      python API.py
+      ```
+    - Server will start at `http://localhost:8000`.
+
+3. **API Usage**
+    - Use Postman (or cURL) to interact with the API.
+    - All endpoints require Basic Auth (username: `admin`, password: `password123`).
+    - Supported endpoints:
+      - `GET /transactions`
+      - `GET /transactions/{id}`
+      - `POST /transactions`
+      - `PUT /transactions/{id}`
+      - `DELETE /transactions/{id}`
+
+4. **DSA Comparison**
+    - Linear Search and Dictionary Lookup tests are included at the end of `etl/sms_parse.py`.
+    - Results print both timings, showing why dictionary lookup is preferred for efficient queries.
+
+**Dependencies:**  
+- Python 3.9+  
+- No external packages required for backend
+
+**Notes:**  
+- See `docs/api_docs.md` for full API documentation and code samples.
+- Example Postman screenshots are included in `docs/screenshots/`.
 
 
