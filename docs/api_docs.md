@@ -20,7 +20,7 @@ All endpoints require **Basic Authentication**.
 GET http://localhost:8000/transactions
 Authorization: Basic
 
-text
+
 
 **Response Example:**
 [
@@ -35,7 +35,7 @@ text
 ...
 ]
 
-text
+
 
 **Error Codes:**
 - `401 Unauthorized`: Invalid or missing credentials
@@ -49,7 +49,7 @@ text
 GET http://localhost:8000/transactions/8888888
 Authorization: Basic
 
-text
+
 
 **Response Example:**
 {
@@ -61,7 +61,7 @@ text
 "timestamp": "2025-10-01 21:00:00"
 }
 
-text
+
 
 **Error Codes:**
 - `401 Unauthorized`
@@ -86,7 +86,7 @@ Body:
 "timestamp": "2025-10-01 22:00:00"
 }
 
-text
+
 
 **Response Example:**
 {
@@ -98,7 +98,7 @@ text
 "timestamp": "2025-10-01 22:00:00"
 }
 
-text
+
 
 **Error Codes:**
 - `401 Unauthorized`
@@ -119,7 +119,7 @@ Body:
 "receiver": "Jane Smith"
 }
 
-text
+
 
 **Response Example:**
 {
@@ -131,7 +131,7 @@ text
 "timestamp": "2025-10-01 22:00:00"
 }
 
-text
+
 
 **Error Codes:**
 - `401 Unauthorized`
@@ -147,7 +147,7 @@ text
 DELETE http://localhost:8000/transactions/9999999
 Authorization: Basic
 
-text
+
 
 **Response Example:**
 {
@@ -159,7 +159,7 @@ text
 "timestamp": "2025-10-01 22:00:00"
 }
 
-text
+
 
 **Error Codes:**
 - `401 Unauthorized`
