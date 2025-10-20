@@ -4,7 +4,7 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 import re
 
 # Load transactions data from the previous parsing step
-with open(r"C:\Users\asade\Downloads\sms_transactions2.json", "r") as f:
+with open("sms_transactions2.json", "r") as f:
     transactions = json.load(f)
 
 class RequestHandler(BaseHTTPRequestHandler):
