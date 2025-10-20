@@ -130,13 +130,15 @@ We continued using Agile practices and updated our Scrum board for Week 2.
 - Linear Search and Dictionary Lookup efficiency comparison for transaction queries.
 
 ### Setup Instructions:
-
+1. **Project CLoning**
+    Navigate to the `api/` folder and download the raw folder
+   
 1. **SMS XML to JSON Parsing**
-    - Run `etl/sms_parse.py` (or your custom script) to convert XML transaction data to JSON.
+    - Run `XML&DSA.py`  to convert XML transaction data to JSON.
     - Output is saved as `data/processed/sms_transactions.json`.
 
 2. **Run the REST API**
-    - Go to the `api/` folder and run:
+    - Run:
       ```
       python API.py
       ```
